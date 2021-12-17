@@ -19,6 +19,6 @@ jdk8:
     - tags
   script:
     - repository=$(awk '/FROM/{print $2}' Dockerfile)
-    - docker build -t $HARBOR_REGISTRY/library/${repository%.*}-jdk8_$CI_COMMIT_TAG .
+    - docker build -t $HARBOR_REGISTRY/library/${repository%.*}-jdk8u152_$CI_COMMIT_TAG .
     - echo $HARBOR_PASS | docker login -u $HARBOR_USER $HARBOR_REGISTRY --password-stdin
-    - docker push $HARBOR_REGISTRY/library/${repository%.*}-jdk8_$CI_COMMIT_TAG
+    - docker push $HARBOR_REGISTRY/library/${repository%.*}-jdk8u152_$CI_COMMIT_TAG
