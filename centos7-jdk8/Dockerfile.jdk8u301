@@ -1,0 +1,10 @@
+FROM centos:7.9.2009
+
+ENV TZ=Asia/Shanghai
+ENV JAVA_HOME /opt/jdk1.8.0_301
+ENV CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ENV PATH $PATH:$JAVA_HOME/bin
+
+RUN curl -sLO https://javadl.oracle.com/webapps/download/GetFile/1.8.0_301-b09/d3c52aa6bfa54d3ca74e617f18309292/linux-i586/jdk-8u301-linux-x64.tar.gz && \
+    tar -xzf jdk-8u301-linux-x64.tar.gz -C /opt && \
+    rm -rf jdk-8u301-linux-x64.tar.gz

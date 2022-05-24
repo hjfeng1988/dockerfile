@@ -1,0 +1,10 @@
+FROM centos:7.9.2009
+
+ENV TZ=Asia/Shanghai
+ENV JAVA_HOME /opt/jdk1.8.0_152
+ENV CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ENV PATH $PATH:$JAVA_HOME/bin
+
+RUN curl -sLO https://javadl.oracle.com/webapps/download/GetFile/1.8.0_152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/linux-i586/jdk-8u152-linux-x64.tar.gz && \
+    tar -xzf jdk-8u152-linux-x64.tar.gz -C /opt && \
+    rm -rf jdk-8u152-linux-x64.tar.gz
